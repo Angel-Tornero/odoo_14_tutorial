@@ -2,7 +2,7 @@
     <data>
         <record id="search_view_tree" model="ir.ui.view">
             <field name="name">Test</field>
-            <field name="model">estate.estate</field>
+            <field name="model">estate.property</field>
             <field name="arch" type="xml">
                 <search string="Test">
                     <field name="name" string="Name"/>

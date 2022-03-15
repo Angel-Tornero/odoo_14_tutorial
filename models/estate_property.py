@@ -4,7 +4,7 @@ from odoo import models, fields
 from dateutil.relativedelta import relativedelta
 
 class estate(models.Model):
-    _name = 'estate.estate'
+    _name = 'estate.property'
     _description = 'Estates'
 
     name = fields.Char(required = True)

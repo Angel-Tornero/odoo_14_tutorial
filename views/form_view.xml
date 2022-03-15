@@ -2,7 +2,7 @@
     <data>
         <record id="test_form_tree" model="ir.ui.view">
             <field name="name">Test</field>
-            <field name="model">estate.estate</field>
+            <field name="model">estate.property</field>
             <field name="arch" type="xml">
                 <form string="Test">
                     <sheet>

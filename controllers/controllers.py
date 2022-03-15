@@ -11,10 +11,10 @@
 #     def list(self, **kw):
 #         return http.request.render('estate.listing', {
 #             'root': '/estate/estate',
-#             'objects': http.request.env['estate.estate'].search([]),
+#             'objects': http.request.env['estate.property'].search([]),
 #         })
 
-#     @http.route('/estate/estate/objects/<model("estate.estate"):obj>/', auth='public')
+#     @http.route('/estate/estate/objects/<model("estate.property"):obj>/', auth='public')
 #     def object(self, obj, **kw):
 #         return http.request.render('estate.object', {
 #             'object': obj
