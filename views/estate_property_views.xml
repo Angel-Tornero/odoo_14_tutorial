@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="test_model_action" model="ir.actions.act_window">
+            <field name="name">Properties</field>
+            <field name="res_model">estate.estate</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="estate_types" model="ir.actions.act_window">
+            <field name="name">Property Types</field>
+            <field name="res_model">estate.property.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="estate_tags" model="ir.actions.act_window">
+            <field name="name">Property Tags</field>
+            <field name="res_model">estate.property.tag</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="estate_offers" model="ir.actions.act_window">
+            <field name="name">Offers</field>
+            <field name="res_model">estate.property.offer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

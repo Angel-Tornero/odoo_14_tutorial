@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="search_view_tree" model="ir.ui.view">
+            <field name="name">Test</field>
+            <field name="model">estate.estate</field>
+            <field name="arch" type="xml">
+                <search string="Test">
+                    <field name="name" string="Name"/>
+                    <field name="postcode" string="Postcode"/>
+                    <field name="expected_price" string="Expected Price"/>
+                    <field name="bedrooms" string="Bedrooms"/>
+                    <field name="living_area" string="Living Area (sqm)"/>
+                    <field name="facades" string="Facades"/>
+                    <separator/>
+                    <filter string="Available" name="state" domain="['|', ('state', '=', 'New'), ('state', '=', 'Offer Received')]"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Postcode" name="postcode" context="{'group_by':'postcode', 'residual_visible':True}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
