@@ -22,6 +22,7 @@ class estate_property_offer(models.Model):
     validity = fields.Integer(default = 7)
     create_date = fields.Date(default = fields.Date.today(), readonly = True)
     date_deadline = fields.Date(compute = "_calculate_date_deadline", inverse = "_inverse_calculate_date_deadline")
+    property_type_id = fields.Many2one("estate.property.type", related="property_id.property_type_id", stored = True)
 
     @api.depends("validity", "create_date")
     def _calculate_date_deadline(self):
@@ -39,5 +40,5 @@ class estate_property_offer(models.Model):
     
     def offer_refuse(self):
         self.status = "refused"
-    
-    
+
+        

@@ -6,6 +6,7 @@
             <field name="arch" type="xml">
                 <tree string="Test">
                     <field name="name"/>
+                    <field name="offer_count"/>
                     <field name="sequence" widget="handle"/>
                 </tree>
             </field>

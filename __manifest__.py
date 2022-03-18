@@ -25,14 +25,15 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/estate_property_views.xml',
-        'views/estate_menus.xml',
-        'views/list_view.xml',
-        'views/form_view.xml',
-        'views/search_view.xml',
-        'views/offer_list_view.xml',
-        'views/estate_type_form.xml',
-        'views/estate_type_list.xml'
+        'views/property_list.xml',
+        'views/actions.xml',
+        'views/tag_list.xml',
+        'views/menu.xml',
+        'views/property_form.xml',
+        'views/property_search.xml',
+        'views/type_list.xml',
+        'views/offer_list.xml',
+        'views/form_type.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

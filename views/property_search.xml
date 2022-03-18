@@ -9,7 +9,7 @@
                     <field name="postcode" string="Postcode"/>
                     <field name="expected_price" string="Expected Price"/>
                     <field name="bedrooms" string="Bedrooms"/>
-                    <field name="living_area" string="Living Area (sqm)"/>
+                    <field name="living_area" string="Living Area (sqm)" filter_domain="[('living_area', '>=', self)]"/>
                     <field name="facades" string="Facades"/>
                     <separator/>
                     <filter string="Available" name="state" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer received')]"/>
