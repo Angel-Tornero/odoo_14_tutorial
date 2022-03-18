@@ -30,7 +30,9 @@
         'views/list_view.xml',
         'views/form_view.xml',
         'views/search_view.xml',
-        'views/offer_list_view.xml'
+        'views/offer_list_view.xml',
+        'views/estate_type_form.xml',
+        'views/estate_type_list.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
