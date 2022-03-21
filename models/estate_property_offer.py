@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 from dateutil.relativedelta import relativedelta
+from odoo.exceptions import UserError
 
 class estate_property_offer(models.Model):
     _name = 'estate.property.offer'
@@ -18,7 +19,7 @@ class estate_property_offer(models.Model):
     price = fields.Float()
     status = fields.Selection(selection = [('accepted', 'Accepted'), ('refused', 'Refused')], copy=False)
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
-    property_id = fields.Many2one("estate.property", string="Property", required=True)
+    property_id = fields.Many2one("estate.property", required=True, default=False)
     validity = fields.Integer(default = 7)
     create_date = fields.Date(default = fields.Date.today(), readonly = True)
     date_deadline = fields.Date(compute = "_calculate_date_deadline", inverse = "_inverse_calculate_date_deadline")
@@ -41,4 +42,12 @@ class estate_property_offer(models.Model):
     def offer_refuse(self):
         self.status = "refused"
 
-        
+    @api.model 
+    def create(self, vals):
+        if (len(self.env["estate.property"].browse(vals["property_id"]).offer_ids) > 0):
+            if (vals["price"] < max(map(lambda i: i.price, self.env["estate.property"].browse(vals["property_id"]).offer_ids))):
+                raise UserError("Can't add an offer with a lower price than an existing one.")
+        self.env["estate.property"].browse(vals["property_id"]).state = 'offer received'
+        return super().create(vals)
+
+
