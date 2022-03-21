@@ -34,7 +34,8 @@
         'views/type_list.xml',
         'views/offer_list.xml',
         'views/form_type.xml',
-        'views/form_inherited_user.xml'
+        'views/form_inherited_user.xml',
+        'views/property_kanban.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

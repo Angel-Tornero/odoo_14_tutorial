@@ -1,0 +1,35 @@
+
+<odoo> 
+    <data>
+        <record id="offer_view_kanban" model="ir.ui.view">
+            <field name="name">Test</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="property_type_id" records_draggable="false">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    <p>Expected Price: <field name="expected_price" string="Expected Price"/></p>
+                                </div>
+                                <field name="state" invisible="1"/>
+                                <div>
+                                    <p>Best Price: <field name="best_price" attrs="{'invisible': [('state', '=', 'offer received')]}"/></p>
+                                </div>
+                                <div>
+                                    <p>Selling Price: <field name="selling_price" attrs="{'invisible': [('state', '=', 'offer accepted')]}"/></p>
+                                </div>
+                                <div>
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/> 
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    </data>
+</odoo>
