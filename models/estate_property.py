@@ -6,6 +6,10 @@ from dateutil.relativedelta import relativedelta
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools import float_compare, float_is_zero
 
+import logging
+_logger = logging.getLogger(__name__)
+
+
 class estate(models.Model):
     _name = 'estate.property'
     _description = 'Estates'
@@ -47,6 +51,7 @@ class estate(models.Model):
     offer_ids = fields.One2many("estate.property.offer", "property_id", string="Offers")
     total_area = fields.Integer(compute = "_calculate_area")
     best_price = fields.Float(compute = "_get_best_offer")
+    company_id = fields.Many2one("res.company", required=True, default=lambda self: self.env.user.company_id)
 
     @api.depends("living_area", "garden_area")
     def _calculate_area(self):
@@ -72,6 +77,11 @@ class estate(models.Model):
             
     def set_as_sold(self):
         for record in self:
+            try:
+                a = record.check_access_rule('write')
+                _logger.info("REACHED " + str(a))
+            except:
+                raise UserError("Error")
             if (record.state != "canceled"):
                 record.state = "sold"
             else:

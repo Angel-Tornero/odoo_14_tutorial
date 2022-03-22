@@ -43,7 +43,8 @@
                             <page string="Other info">
                                 <group col="2">                           
                                     <field name="buyer"/>                            
-                                    <field name="salesperson"/>   
+                                    <field name="salesperson"/>
+                                    <field name="company_id"/>
                                 </group>
                             </page>
                         </notebook>
